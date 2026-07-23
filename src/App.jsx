@@ -229,6 +229,8 @@ function App() {
     startStoneTimer()
   }
 
+  const stoneActiveIndex = ((stonePos % stones.length) + stones.length) % stones.length
+
   useEffect(() => {
     const diff = stonePos - stoneBase
     if (Math.abs(diff) < stones.length) return
@@ -385,6 +387,48 @@ function App() {
                 </div>
               ))}
             </div>
+          </div>
+          <button
+            type="button"
+            className="care-arrow care-arrow--next"
+            onClick={() => goStone(1)}
+            aria-label="Następny kamień"
+          >
+            ›
+          </button>
+        </div>
+
+        <div className="stones-coverflow">
+          <button
+            type="button"
+            className="care-arrow care-arrow--prev"
+            onClick={() => goStone(-1)}
+            aria-label="Poprzedni kamień"
+          >
+            ‹
+          </button>
+          <div className="care-stage">
+            {stones.map((s, i) => {
+              const n = stones.length
+              let offset = i - stoneActiveIndex
+              if (offset > n / 2) offset -= n
+              if (offset < -n / 2) offset += n
+              const abs = Math.abs(offset)
+              const isActive = offset === 0
+              return (
+                <div
+                  className={`stone-card care-card stone-coverflow-card${isActive ? ' care-card--active' : ''}`}
+                  key={s.name}
+                  style={{ '--offset': offset, '--abs': abs, zIndex: n - abs }}
+                  onClick={() => !isActive && goStone(offset)}
+                >
+                  <span className="stone-dot" style={{ background: s.color }} />
+                  <h3>{s.name}</h3>
+                  <p className="stone-tag">{s.tag}</p>
+                  <p className="stone-desc">{s.desc}</p>
+                </div>
+              )
+            })}
           </div>
           <button
             type="button"

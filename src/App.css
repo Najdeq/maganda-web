@@ -490,6 +490,37 @@ section h2 {
   line-height: 1.5;
 }
 
+.stones-coverflow {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .stones-carousel {
+    display: none;
+  }
+
+  .stones-coverflow {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .stones-coverflow .care-stage {
+    width: min(280px, 78vw);
+    height: 380px;
+  }
+
+  .stone-coverflow-card {
+    overflow: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .care {
   padding: 5rem 6vw;
   background: var(--ecru);
