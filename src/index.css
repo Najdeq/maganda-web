@@ -1,0 +1,69 @@
+:root {
+  --cloud: #f0ede7;
+  --ecru: #e4dccd;
+  --taupe: #c9bfb2;
+  --gold: #b08d57;
+  --gold-light: #c9a45c;
+  --ink: #2a2724;
+  --ink-soft: #4a453f;
+  --blush: #e8b4b8;
+  --lavender: #b3a0c7;
+  --sage: #a9ae8e;
+  --midnight: #3b4a78;
+  --lapis: #33578f;
+  --emerald: #2f6b4d;
+  --tanzanite: #5b5ea6;
+  --aqua: #9fc6c1;
+  --morganite: #e7b8ae;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Work Sans", sans-serif;
+  --font-script: "Pinyon Script", cursive;
+  --font-script-fallback: "Dancing Script", cursive;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cloud);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+#root {
+  overflow-x: hidden;
+}
